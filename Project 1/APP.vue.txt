@@ -1,0 +1,68 @@
+<template>
+    <div>
+      <app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></app-header>
+      <app-ninja v-bind:ninjas="ninjas"></app-ninja> 
+      <br>
+      <app-footer v-bind:title="title"></app-footer>
+    </div>
+</template>
+
+<script>
+
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
+import Ninja from './components/Ninja.vue';
+
+
+export default {
+  
+  components:{
+    'app-header': Header,
+    'app-ninja' : Ninja,
+    'app-footer' : Footer
+  },
+  data () {
+    return {
+      ninjas:[
+          {name:'Ryu', speciality: 'Vue Components', show: false},
+          {name:'Crystal', speciality: 'HTML Wizardry', show: false},
+          {name:'Hitoshi', speciality: 'Click Events', show: false},
+          {name:'Tango', speciality: 'Conditionals', show: false},
+          {name:'Kami', speciality: 'Web Pack', show: false},
+          {name:'Yoshi', speciality: 'Data Diggin', show: false}
+      ],
+      title: "Vue Ninjas"
+    }
+  },
+  methods: {
+    updateTitle: function(updateTitle){
+       this.title=updateTitle;
+    }
+  },
+  //LifeCycle Hooks..........>
+
+  beforeCreate() {
+    alert('BeforeCreate');
+  },
+  created() {
+    alert('Created');
+  },
+  beforeMount() {
+    alert('Before Mount');
+  },
+  mounted() {
+    alert('Mounted');
+  },
+  beforeUpdate() {
+    alert('Before Updated');
+  },
+  updated() {
+    alert('Updated');
+  },
+  
+}
+</script>
+
+<style>
+
+</style>

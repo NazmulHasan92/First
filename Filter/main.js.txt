@@ -1,0 +1,23 @@
+import Vue from 'vue'
+import App from './App.vue'
+
+import VueResource from 'vue-resource'
+
+Vue.use(VueResource);
+
+//export const bus = new Vue();
+
+//Filter----->
+
+Vue.filter('to-uppercase', function(value){
+   return value.toUpperCase();
+});
+
+Vue.filter('sinppet', function(value){
+   return value.slice(0,100)+'...a'
+});
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})
